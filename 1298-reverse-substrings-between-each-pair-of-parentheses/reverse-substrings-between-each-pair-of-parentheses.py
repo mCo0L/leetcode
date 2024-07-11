@@ -1,31 +1,22 @@
 class Solution:
     
     def reverseParentheses(self, s: str) -> str:
-        n = len(s)
-        pair = [0] * n
-        open_parentheses_indices = []
-
-        for i in range(n):
-            if s[i] == '(':
-                open_parentheses_indices.append(i)
-            elif s[i] == ')':
-                j = open_parentheses_indices.pop()
-                pair[i] = j
-                pair[j] = i
-        
-        result = list()
-        cur_index = 0
-        direction = 1
-
-        while(cur_index < n):
-            if s[cur_index] in ('(', ')'):
-                cur_index = pair[cur_index]
-                direction = -direction
+        stack = []
+        for ch in s:
+            if ch == ')':
+                # Pop until matching '('
+                temp = []
+                while stack and stack[-1] != '(':
+                    temp.append(stack.pop())
+                # Pop the '('
+                stack.pop()
+                # Add reversed content back to stack
+                stack.extend(temp)
             else:
-                result.append(s[cur_index])
-            cur_index += direction
-
-        return "".join(result)
+                stack.append(ch)
+        
+        # Join the stack to form the final result
+        return ''.join(stack)
 
             
         
