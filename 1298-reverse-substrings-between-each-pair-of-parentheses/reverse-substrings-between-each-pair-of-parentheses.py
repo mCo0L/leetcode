@@ -5,10 +5,10 @@ class Solution:
         pair = [0] * n
         open_parentheses_indices = []
 
-        for i, ch in enumerate(s):
-            if ch == '(':
+        for i in range(n):
+            if s[i] == '(':
                 open_parentheses_indices.append(i)
-            elif ch == ')':
+            elif s[i] == ')':
                 j = open_parentheses_indices.pop()
                 pair[i] = j
                 pair[j] = i
