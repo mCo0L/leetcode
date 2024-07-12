@@ -1,19 +1,16 @@
 class Solution:
     def countAndRemove(self, s: str, match: str, pt: int) -> (str, int):
-        l = len(s)
-        i = 0
+        char_stack = list()
         points = 0
-        while(i < l):
-            if s[i:i+2] == match:
+        for ch in s:
+            if ch == match[1] and char_stack and char_stack[-1] == match[0]:
+                char_stack.pop()
                 points += pt
-                s = s[:i] + s[i+2:]
-
-                # since it's possible that because we are remove a part of string the previous char might form a new match
-                i -= 1
             else:
-                i += 1
+                char_stack.append(ch)
         
-        return s, points
+        return "".join(char_stack), points
+
 
     
     def maximumGain(self, s: str, x: int, y: int) -> int:
