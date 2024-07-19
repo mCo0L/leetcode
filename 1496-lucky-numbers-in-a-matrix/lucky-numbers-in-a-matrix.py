@@ -4,7 +4,7 @@ class Solution:
         min_row_positions = {i: row.index(min(row)) for i, row in enumerate(matrix)}
         max_col_values = [max(col) for col in zip(*matrix)]
 
-        lucky_numbers = list()
+        lucky_numbers = []
 
         for i, min_value in enumerate(min_row_values):
             column_index = min_row_positions[i]
