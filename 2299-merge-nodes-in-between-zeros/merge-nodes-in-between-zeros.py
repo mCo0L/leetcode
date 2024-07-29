@@ -6,7 +6,7 @@
 class Solution:
     def mergeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
         prev, curr = head.next, head.next
-        sum=0
+        sum = 0
         while curr:
             val = curr.val
             if val !=0: sum += val
