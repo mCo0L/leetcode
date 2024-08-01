@@ -1,3 +1,3 @@
 class Solution:
     def countSeniors(self, details: List[str]) -> int:
-        return sum(info[11] > '6' or (info[11] == '6' and info[12] > '0') for info in details)
+        return sum(1 if int(s[11:13])>60 else 0 for s in details)
