@@ -1,15 +1,15 @@
 class Solution:
     def minSwaps(self, nums: List[int]) -> int:
-        total, n = sum(nums), len(nums)
-        nums += nums[:total]
-        onesInWindows = nums[:total].count(1)
-        minSwaps = total - onesInWindows
+        ones, n = sum(nums), len(nums)
+        nums += nums[:ones]
+        onesInWindow = nums[:ones].count(1)
+        minSwaps = ones - onesInWindow
         for i in range(1, n):
             if nums[i-1] == 1:
-                onesInWindows -= 1
-            if nums[i+total-1] == 1:
-                onesInWindows += 1
-            swaps = total - onesInWindows
+                onesInWindow -= 1
+            if nums[i+ones-1] == 1:
+                onesInWindow += 1
+            swaps = ones - onesInWindow
             if swaps < minSwaps:
                 minSwaps = swaps
         
