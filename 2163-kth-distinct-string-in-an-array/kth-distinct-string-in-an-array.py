@@ -6,7 +6,7 @@ class Solution:
         
         count = 0
         for ch in arr:
-            if ch in counter and counter[ch] == 1:
+            if counter[ch] == 1:
                 count += 1
                 if count == k:
                     return ch
