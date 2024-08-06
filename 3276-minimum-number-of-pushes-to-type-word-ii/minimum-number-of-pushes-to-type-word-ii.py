@@ -6,7 +6,7 @@ class Solution:
 
         counts = collections.Counter(word)
         cost = 0
-        for i, (_, val) in enumerate(sorted(counts.items(), reverse=True, key=lambda x: counts[x[0]])):
+        for i, val in enumerate(sorted(counts.values(), reverse=True)):
             cost += val * ((i+8) // 8)
         
         return cost
