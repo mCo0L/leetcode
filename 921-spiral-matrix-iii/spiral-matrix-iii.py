@@ -1,36 +1,22 @@
 class Solution:
-    def spiralMatrixIII(self, rows: int, cols: int, rStart: int, cStart: int) -> List[List[int]]:
-        ans = []
-        left, right = cStart, cStart+1
-        top, bottom = rStart, rStart+1
-        current = 1
-        move = 0
-        while current <= rows*cols:
-            # fill top
-            for i in range(left+move, right+1):
-                if self.inbound(top, i, rows, cols):
-                    ans.append([top, i])
-                    current += 1
-            left -= 1
-            # fill right
-            for i in range(top+1, bottom+1):
-                if self.inbound(i, right, rows, cols):
-                    ans.append([i, right])
-                    current += 1
-            top -= 1
-            # fill bottom
-            for i in range(right-1, left-1, -1):
-                if self.inbound(bottom, i, rows, cols):
-                    ans.append([bottom, i])
-                    current += 1
-            right += 1
-            # fill left
-            for i in range(bottom-1, top-1, -1):
-                if self.inbound(i, left, rows, cols):
-                    ans.append([i, left])
-                    current += 1
-            bottom += 1
-            move = 1
+    def spiralMatrixIII(self, m: int, n: int, i: int, j: int) -> List[List[int]]:
+        ans=[]
+        lb,rb,tb,bb=j,j,i,i
+        while(len(ans)<m*n):
+            while(j<rb+1):
+                if(i<m and j<n and i>=0 and j>=0):ans.append([i,j])
+                j+=1
+            rb+=1
+            while(i<bb+1):
+                if(i<m and j<n and i>=0 and j>=0):ans.append([i,j])
+                i+=1
+            bb+=1
+            while(j>lb-1):
+                if(i<m and j<n and i>=0 and j>=0):ans.append([i,j])
+                j-=1
+            lb-=1
+            while(i>tb-1):
+                if(i<m and j<n and i>=0 and j>=0):ans.append([i,j])
+                i-=1
+            tb-=1
         return ans
-    def inbound(self, r, c, rows, cols):
-        return 0<=r<rows and 0<=c<cols
