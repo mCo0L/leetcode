@@ -1,25 +1,15 @@
 class Solution:
-    def canBeChunked(self, arr, i, j):
-        count = 0
-        for index in range(i,j+1):
-            if arr[index] >= i and arr[index] <= j:
-                count += 1
-        
-        if count == j-i+1:
-            return True
-        return False
-
     def maxChunksToSorted(self, arr: List[int]) -> int:
+        count = 0
         n = len(arr)
-        chunks = 0
-
-        i = 0
-        while i < n:
-            j = i
-            for j in range(i, n):               
-                if self.canBeChunked(arr, i, j):
-                    break
-            chunks += 1
-            i = j+1
-        return chunks
+        imax = -1
+       
+       
+        for i in range(n):
+            imax = max(imax, arr[i])
+            if imax == i:
+                count += 1
+                imax = -1
+        
+        return count
             
