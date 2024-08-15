@@ -1,15 +1,11 @@
 class Solution:
     def maxChunksToSorted(self, arr: List[int]) -> int:
+        prevMax = -1
         count = 0
-        n = len(arr)
-        imax = -1
-       
-       
-        for i in range(n):
-            imax = max(imax, arr[i])
-            if imax == i:
+        for i in range(len(arr)):
+            prevMax = max(prevMax, arr[i])
+            if i == prevMax:
                 count += 1
-                imax = -1
         
         return count
             
