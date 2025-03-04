@@ -5,6 +5,3 @@ class Solution:
             if r == 2:
                 return False
         return True
-            
-
-        
