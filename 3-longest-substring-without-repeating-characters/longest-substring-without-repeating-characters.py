@@ -10,12 +10,12 @@ class Solution:
             if s[i] not in stack:
                 stack.append(s[i])
                 continue
-            longest = max(longest, len(stack))
-            while True:
-                if s[i] == stack.pop(0):
-                    break
-            stack.append(s[i])
-        
+            else:
+                longest = max(longest, len(stack))
+                while True:
+                    if s[i] == stack.pop(0):
+                        break
+                stack.append(s[i])
         longest = max(longest, len(stack))
         return longest
             
