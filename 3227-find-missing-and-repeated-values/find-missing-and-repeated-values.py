@@ -12,7 +12,7 @@ class Solution:
         for i, val in enumerate(arr):
             if val == 0:
                 missing = i+1
-            elif val > 1:
+            elif val == 2:
                 repeat = i+1
         
         return [repeat, missing]
