@@ -10,6 +10,9 @@ class Solution:
         missing = None
         repeat = None
         for i, val in enumerate(arr):
+            if val == 1:
+                continue
+            
             if val == 0:
                 missing = i+1
             elif val == 2:
