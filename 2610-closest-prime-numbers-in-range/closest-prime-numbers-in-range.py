@@ -1,8 +1,5 @@
 class Solution:
     def closestPrimes(self, left: int, right: int) -> List[int]:
-        if left > right:
-            return [-1, -1]
-
         # Step 1: Sieve of Eratosthenes
         is_prime = [True] * (right + 1)
         is_prime[0] = is_prime[1] = False
